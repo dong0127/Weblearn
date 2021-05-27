@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="test01">
+    <resultMap id="table_student_map" type="com.dong.domain.UserBean">
+        <result column="id" property="id" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="gender" property="gender" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="head">
+        id,
+		name,
+		gender,
+
+    </sql>
+    <select id="getById" resultMap="table_student_map">
+        select * from
+        table_student
+        <where>
+            <if test="id != null">
+                AND id = #{id}
+            </if>
+
+        </where>
+
+    </select>
+    <!--<insert id="insert">
+        insert into visitor_apply(
+        <include refid="Base_Column_List"/>
+        ) VALUES
+        (#{id},now(),now(),
+        ...
+        )
+        <selectKey keyProperty="id" resultType="Long" order="AFTER">
+            SELECT
+            LAST_INSERT_ID()
+        </selectKey>
+    </insert>
+
+    <select id="getCount" resultType="int">
+        select count(*) from
+        student
+        <where>
+            <if test="属性 != null">
+                AND 字段 = #{属性}
+            </if>
+            <if test="属性 != null">
+                AND 字段  LIKE CONCAT('%', #{属性},'%')
+            </if>
+            <if test="属性">
+                <![CDATA[
+                AND 字段 <> 0
+                ]]>
+            </if>
+            <if test="searchKey != null">
+                AND (字段 like CONCAT('%',#{属性},'%' ) or
+                字段 like CONCAT('%',#{属性},'%' )
+                ...
+                字段 like CONCAT('%',#{属性},'%' ))
+            </if>
+        </where>
+    </select>
+
+    <select id="getList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from student
+        <where>
+            <if test="属性 != null">
+                AND 字段 = #{属性}
+            </if>
+            <if test="属性 != null">
+                AND 字段  LIKE CONCAT('%', #{属性},'%')
+            </if>
+            <if test="属性 != null">
+                <![CDATA[
+                AND 字段 <> 0
+                ]]>
+            </if>
+            <if test="searchKey != null">
+                AND (字段 like CONCAT('%',#{属性},'%' ) or
+                字段 like CONCAT('%',#{属性},'%' )
+                ...
+                字段 like CONCAT('%',#{属性},'%' ))
+            </if>
+        </where>
+        order by id DESC
+        <if test="startRow != null">
+            limit #{startRow},#{limit}
+        </if>
+    </select>
+    <select id="getById" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM 字段 where id = #{id}
+    </select>
+
+    <update id="update">
+        update student set
+                           gmt_modified = now(),
+                           字段 = #{属性},
+            ...
+    </update>-->
+
+
+</mapper>
