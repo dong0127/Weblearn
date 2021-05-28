@@ -5,10 +5,11 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 import java.io.IOException;
 import java.io.InputStream;
-
 public class Test01 {
     public static void main(String[] args) throws IOException {
         String resource = "mybatis-config.xml";
@@ -17,8 +18,7 @@ public class Test01 {
         SqlSession session = factory.openSession();
 
         UserBean userBean = session.selectOne("test01.getById","4019243");
-        session.close();
-        System.out.println(userBean);
 
+        session.close();
     }
 }
