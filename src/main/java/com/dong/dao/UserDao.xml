@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="test01">
+<mapper namespace="com.dong.dao.UserDao">
     <resultMap id="table_student_map" type="com.dong.domain.UserBean">
         <result column="id" property="id" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
@@ -19,9 +19,7 @@
             <if test="id != null">
                 AND id = #{id}
             </if>
-
         </where>
-
     </select>
     <!--<insert id="insert">
         insert into visitor_apply(

@@ -39,6 +39,13 @@
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.25</version>
     </dependency>
+    <!-- https://mvnrepository.com/artifact/javax.servlet/jstl -->
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>jstl</artifactId>
+      <version>1.2</version>
+    </dependency>
+
 
 
     <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
@@ -83,6 +90,16 @@
   </dependencies>
 
   <build>
+    <!--IDEA是不会编译src的java目录的xml文件，所以在Mybatis的配置文件中找不到xml文件-->
+    <resources>
+      <resource>
+        <directory>src/main/java</directory>
+        <includes>
+          <include>**/*.xml</include>
+        </includes>
+      </resource>
+    </resources>
+
     <finalName>Weblearn</finalName>
     <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
       <plugins>
